@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSS Art & Animation Showcase</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <h1>CSS Art & Animation Showcase</h1>
+    <div class="controls">
+      <button id="themeToggle" class="btn">Toggle Dark/Light</button>
+      <a class="btn" href="https://github.com/your-username/css-art-showcase" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <main class="gallery">
+    <!-- 1. Spinning Loader -->
+    <section class="card">
+      <h2 class="card-title">Spinning Loader</h2>
+      <div class="art art-loader">
+        <div class="loader"></div>
+      </div>
+      <p class="card-desc">A simple, elegant loader using borders and keyframes.</p>
+    </section>
+
+    <!-- 2. Bouncing Balls -->
+    <section class="card">
+      <h2 class="card-title">Bouncing Balls</h2>
+      <div class="art art-bounce">
+        <div class="stage">
+          <div class="ball ball1"></div>
+          <div class="ball ball2"></div>
+          <div class="ball ball3"></div>
+        </div>
+      </div>
+      <p class="card-desc">Staggered CSS animations with easing and delays.</p>
+    </section>
+
+    <!-- 3. Morphing Blob -->
+    <section class="card">
+      <h2 class="card-title">Morphing Blob</h2>
+      <div class="art art-blob">
+        <div class="blob"></div>
+      </div>
+      <p class="card-desc">Animated border-radius and transform for organic motion.</p>
+    </section>
+
+    <!-- 4. Solar System -->
+    <section class="card">
+      <h2 class="card-title">Mini Solar System</h2>
+      <div class="art art-solar">
+        <div class="space">
+          <div class="sun"></div>
+          <div class="orbit orbit1"><div class="planet p1"></div></div>
+          <div class="orbit orbit2"><div class="planet p2"></div></div>
+          <div class="orbit orbit3"><div class="planet p3"></div></div>
+        </div>
+      </div>
+      <p class="card-desc">Planets revolving using pure CSS transforms.</p>
+    </section>
+
+    <!-- 5. Neon Button Hover -->
+    <section class="card">
+      <h2 class="card-title">Neon Button Hover</h2>
+      <div class="art art-neon">
+        <a href="#" class="neon-btn">Hover Me</a>
+      </div>
+      <p class="card-desc">Glow effects with filters and transitions.</p>
+    </section>
+
+    <!-- 6. Wave Text -->
+    <section class="card">
+      <h2 class="card-title">Wave Text</h2>
+      <div class="art art-wave" aria-label="WAVE">
+        <span>W</span><span>A</span><span>V</span><span>E</span>
+      </div>
+      <p class="card-desc">Sequential animation for letters to create a wave.</p>
+    </section>
+
+    <!-- 7. CSS Landscape -->
+    <section class="card">
+      <h2 class="card-title">Minimal CSS Landscape</h2>
+      <div class="art art-landscape">
+        <div class="sky"></div>
+        <div class="sun2"></div>
+        <div class="mountain m1"></div>
+        <div class="mountain m2"></div>
+        <div class="ground"></div>
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+      </div>
+      <p class="card-desc">Pure CSS shapes layered to form a simple scene.</p>
+    </section>
+
+    <!-- 8. Card Tilt -->
+    <section class="card">
+      <h2 class="card-title">Interactive Tilt Card</h2>
+      <div class="art art-tilt">
+        <div class="tilt-card">
+          <div class="tilt-content">
+            <h3>Motion</h3>
+            <p>Move your cursor over the card.</p>
+          </div>
+        </div>
+      </div>
+      <p class="card-desc">Perspective and transform for a subtle 3D effect.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built with pure HTML/CSS (and a pinch of JS). Customize, remix, and showcase your style.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
