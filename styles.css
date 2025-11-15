@@ -1,0 +1,312 @@
+/* Base and theme */
+:root {
+  --bg: #0f1216;
+  --surface: #171b22;
+  --text: #e9eef7;
+  --muted: #b9c4d6;
+  --accent: #6aa9ff;
+  --accent2: #ff7ab6;
+  --card: #1d232d;
+  --shadow: rgba(0,0,0,0.35);
+}
+
+.light {
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --text: #1a202c;
+  --muted: #4a5568;
+  --accent: #2563eb;
+  --accent2: #db2777;
+  --card: #ffffff;
+  --shadow: rgba(0,0,0,0.1);
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.site-header, .site-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header h1 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.gallery {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 8px 16px 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  box-shadow: 0 10px 24px var(--shadow);
+  padding: 16px;
+}
+
+.card-title {
+  font-size: 18px;
+  margin: 8px 0 12px;
+  font-weight: 700;
+}
+
+.card-desc {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.art {
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.06);
+  height: 220px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 1. Spinning Loader */
+.loader {
+  width: 72px;
+  height: 72px;
+  border: 6px solid rgba(255,255,255,0.2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 2. Bouncing Balls */
+.stage {
+  width: 80%;
+  height: 70%;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+.ball {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  animation: bounce 0.9s infinite cubic-bezier(.28,.84,.42,1);
+}
+.ball2 { background: var(--accent2); animation-delay: 0.15s; }
+.ball3 { background: #7cf4d2; animation-delay: 0.3s; }
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-60px); }
+}
+
+/* 3. Morphing Blob */
+.blob {
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, var(--accent) 20%, var(--accent2) 70%);
+  filter: blur(0.4px) saturate(120%);
+  border-radius: 40% 60% 60% 40% / 50% 50% 60% 40%;
+  animation: morph 6s ease-in-out infinite;
+}
+@keyframes morph {
+  0% {
+    border-radius: 40% 60% 60% 40% / 50% 50% 60% 40%;
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
+    transform: translateY(-8px) rotate(10deg);
+  }
+  100% {
+    border-radius: 40% 60% 60% 40% / 50% 50% 60% 40%;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* 4. Solar System */
+.space {
+  width: 220px; height: 220px; position: relative;
+  background: radial-gradient(circle at 30% 30%, #10131a, #0b0e13 60%);
+  border-radius: 50%;
+}
+.sun {
+  width: 30px; height: 30px; background: #ffcc4d;
+  border-radius: 50%;
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 30px 10px rgba(255,204,77,0.4);
+}
+.orbit {
+  position: absolute; top: 50%; left: 50%;
+  border: 1px dashed rgba(255,255,255,0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.orbit1 { width: 80px; height: 80px; animation: orbit-spin 5s linear infinite; }
+.orbit2 { width: 120px; height: 120px; animation: orbit-spin 10s linear infinite; }
+.orbit3 { width: 160px; height: 160px; animation: orbit-spin 16s linear infinite; }
+.planet {
+  width: 16px; height: 16px; border-radius: 50%; position: absolute; top: 50%; left: 0;
+  transform: translateY(-50%);
+}
+.p1 { background: #7cf4d2; box-shadow: 0 0 12px #7cf4d2aa; }
+.p2 { background: #6aa9ff; box-shadow: 0 0 12px #6aa9ffaa; }
+.p3 { background: #ff7ab6; box-shadow: 0 0 12px #ff7ab6aa; }
+@keyframes orbit-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* 5. Neon Button Hover */
+.neon-btn {
+  display: inline-block;
+  padding: 14px 24px;
+  color: var(--text);
+  text-decoration: none;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  position: relative;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.neon-btn::before {
+  content: "";
+  position: absolute; inset: -6px;
+  border-radius: 12px;
+  filter: blur(8px);
+  opacity: 0;
+  background: radial-gradient(closest-side, var(--accent), transparent 70%);
+  transition: opacity 0.2s ease;
+}
+.neon-btn:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.neon-btn:hover::before { opacity: 1; }
+
+/* 6. Wave Text */
+.art-wave {
+  display: flex; gap: 8px; font-size: 56px; font-weight: 800;
+}
+.art-wave span {
+  display: inline-block;
+  animation: wave 1.2s ease-in-out infinite;
+}
+.art-wave span:nth-child(2) { animation-delay: 0.1s; }
+.art-wave span:nth-child(3) { animation-delay: 0.2s; }
+.art-wave span:nth-child(4) { animation-delay: 0.3s; }
+@keyframes wave {
+  0%, 100% { transform: translateY(0); color: var(--text); }
+  50% { transform: translateY(-12px); color: var(--accent); }
+}
+
+/* 7. CSS Landscape */
+.art-landscape {
+  width: 100%; height: 100%; position: relative; overflow: hidden;
+  background: linear-gradient(#78b2ff, #cbe6ff);
+}
+.sky { position: absolute; inset: 0; background: transparent; }
+.sun2 {
+  position: absolute; width: 60px; height: 60px; border-radius: 50%;
+  background: #ffd166; top: 20px; right: 20px;
+  box-shadow: 0 0 30px rgba(255, 209, 102, 0.6);
+  animation: sunfloat 6s ease-in-out infinite;
+}
+@keyframes sunfloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.mountain {
+  position: absolute; bottom: 60px; width: 0; height: 0;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-bottom: 140px solid #2f4858;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,0.2));
+}
+.m1 { left: 40px; transform: scale(1); }
+.m2 { left: 160px; transform: scale(0.8); border-bottom-color: #3a5a6b; }
+.ground {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 70px;
+  background: linear-gradient(#88d498, #52b788);
+}
+.cloud {
+  position: absolute; width: 90px; height: 30px; background: #fff; border-radius: 30px;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.1));
+  animation: cloud 9s linear infinite;
+}
+.cloud::before, .cloud::after {
+  content: ""; position: absolute; background: #fff; border-radius: 50%;
+}
+.cloud::before { width: 40px; height: 40px; left: 10px; top: -20px; }
+.cloud::after  { width: 50px; height: 50px; left: 35px; top: -26px; }
+.c1 { top: 30px; left: -120px; }
+.c2 { top: 60px; left: -180px; animation-duration: 12s; }
+@keyframes cloud {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(360px); }
+}
+
+/* 8. Interactive Tilt Card */
+.art-tilt {
+  perspective: 800px;
+}
+.tilt-card {
+  width: 70%; height: 70%;
+  border-radius: 14px; background: linear-gradient(135deg, #202634, #1a1f2b);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 12px 24px var(--shadow);
+  transform-style: preserve-3d;
+  transition: transform 0.18s ease;
+}
+.tilt-content {
+  padding: 20px; color: #cfd6e5;
+  transform: translateZ(30px);
+}
+.art-tilt:hover .tilt-card {
+  transform: rotateY(8deg) rotateX(4deg) translateZ(0);
+}
+
+/* Responsiveness */
+@media (max-width: 640px) {
+  .site-header, .site-footer { flex-direction: column; gap: 12px; }
+  .art { height: 200px; }
+}
